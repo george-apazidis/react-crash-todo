@@ -23,14 +23,20 @@ class App extends Component {
     ]
   }
 
-  markComplete = (e) => {
-    console.log('From app.js')
+  // Toggle Complete
+  toggleComplete = (id) => {
+    this.setState({ todos: this.state.todos.map(todo => {
+      if(todo.id === id ) {
+        todo.completed = !todo.completed
+      }
+      return todo;
+    })})
   }
 
   render() { 
     return (
       <div className="App">
-        <Todos todos={this.state.todos} markComplete={this.markComplete} />
+        <Todos todos={this.state.todos} toggleComplete={this.toggleComplete} />
       </div>
     );
   }
