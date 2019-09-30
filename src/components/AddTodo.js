@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
-export class AddTodo extends Component {
+class AddTodo extends Component {
   state = {
     title: ""
   };
 
-  onSubmit = (e) => {
+  onSubmit = e => {
     e.preventDefault();
     this.props.addTodo(this.state.title);
-    this.setState({title: ''});
-  }
+    this.setState({ title: "" });
+  };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
